@@ -1,14 +1,31 @@
-//
-//  main.cpp
-//  Homework_C-
-//
-//  Created by Maxim Gvozdev on 21.10.2024.
-//
-
 #include <iostream>
+#include "Utils.h"
+#include "test.h"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main() {
+    std::string command;
+    long value;
+    while (true) {
+        displayMenu(getMenuOptions);
+        getline(std::cin, command);
+        
+        value = numberOrDefault(command);
+        
+        switch (value) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 0:
+                std::cout << "Выход из программы.\n";
+                return 0;
+            default:
+                std::cout << "Неверный выбор. Попробуйте снова.\n";
+                break;
+        }
+    }
 }
+    
+
