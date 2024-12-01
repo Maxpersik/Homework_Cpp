@@ -9,6 +9,6 @@ TrieNode::TrieNode() {
 }
 TrieNode::~TrieNode() {
     for (auto& pair : children) {
-        delete pair.second; // Удаляем все дочерние узлы
+        delete pair.second;
     }
 }
