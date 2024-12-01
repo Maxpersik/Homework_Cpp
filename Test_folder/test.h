@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef TEST_H
+#define TEST_H
 
 #include <iostream>
 #include <string>
@@ -20,4 +20,4 @@ void runAllTests(std::function<void(const std::string&, const std::string&)> met
 
 void testMenu(std::function<void(const std::string&, const std::string&)> method);
 
-#endif // UTILS_H
+#endif // TEST_H

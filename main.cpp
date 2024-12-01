@@ -1,24 +1,19 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
-#include "Trie.h"
 #include <vector>
-#include "TrieNode.h"
-#include "Utils.h"
-#include "test.h"
+#include "Utils/Utils.h"
+#include "Test_folder/test.h"
+#include "Starostin_algoritm/function_by_Starostin.h"
 
-
-void prefix_code_by_Vodorezova(const vector<string>& words, string& poisk) {
-    Trie trie;
-    for (const auto& word : words) {
-        trie.insert(word);
-    }
-    cout << "Output of search for word in template and prefix" << endl;
-    cout << trie.search(poisk) << endl;
-    cout << trie.startsWith(poisk) << endl;
-
-}
-
+std::vector<std::string> getMenuOptions = {
+        "Выход",
+        "Алгоритм Кнута-Морриса-Пратта",
+        "Поиск с помощью префиксного дерева",
+        "Z-алгоритм",
+        "Алгоритм Bitap",
+        "Все алгоритмы"
+    };
 
 int main() {
     std::string command;
@@ -31,17 +26,16 @@ int main() {
         
         switch (value) {
             case 1:
+                //universalMenu("Пример алгоритма", exampleAlgorithm, testCases);
                 break;
             case 2:
+                //universalMenu("Пример алгоритма", exampleAlgorithm, testCases)
                 break;
             case 3:
-                Trie trie;
-                string poisk;
-                vector<string> words = { "apple", "app", "banana" };
-                poisk = "apple";
-                prefix_code_by_Vodorezova(words, poisk);
+                //universalMenu("Z-алгоритм:", find, predefinedTextPatterns);
                 break;
             case 4:
+                //universalMenu("Пример алгоритма", exampleAlgorithm, testCases);
                 break;
             case 5:
                 break;

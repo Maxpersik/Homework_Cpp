@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include "test.h"
 
 std::string readFileContent(const std::string& filePath) {
     std::ifstream file(filePath);
@@ -25,7 +26,8 @@ std::vector<std::pair<std::string, std::string>> predefinedTextPatterns = {
     {"Тест 9: Это длинный текст с кратким шаблоном внутри.", "шаблон"}, // Длинный текст, короткий шаблон
     {"Тест 10: Короткий", "Короткий длинный шаблон"},                  // Короткий текст, длинный шаблон
     {"Тест 11: Проверка регистра шаблона", "Шаблон"}, //Различие в регистре
-    {readFileContent("file1.txt"), "шаблон"}
+    {readFileContent("tests/test1.txt"), "шаблон"}, // 316к символов
+    {readFileContent("tests/test2.txt"), "шаблон"} // 1kk символов
 };
 
 void selectPredefinedTextPattern(std::string& text, std::string& pattern) {
