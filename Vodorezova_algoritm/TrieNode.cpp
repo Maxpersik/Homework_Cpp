@@ -1,7 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
-#include "Trie.h"
+#include "function_by_Vodorezova.h"
 #include "TrieNode.h"
 
 TrieNode::TrieNode() {
