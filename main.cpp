@@ -18,6 +18,10 @@ int main() {
                 break;
             case 3:
                 break;
+            case 4:
+                break;
+            case 5:
+                break;
             case 0:
                 std::cout << "Выход из программы.\n";
                 return 0;

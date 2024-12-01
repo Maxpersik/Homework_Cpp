@@ -3,6 +3,15 @@
 #include <vector>
 #include <fstream>
 
+std::string readFileContent(const std::string& filePath) {
+    std::ifstream file(filePath);
+    if (!file.is_open()) {
+        std::cerr << "Не удалось открыть файл: " << filePath << '\n';
+        return "";
+    }
+    std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    return content;
+}
 
 std::vector<std::pair<std::string, std::string>> predefinedTextPatterns = {
     {"Тест 1: Простой пример текста, содержащего шаблон.", "шаблон"}, // Прямое совпадение
@@ -15,7 +24,8 @@ std::vector<std::pair<std::string, std::string>> predefinedTextPatterns = {
     {"Тест 8: ааабббвввгггддд", "ббб"},                                // Повторяющиеся символы
     {"Тест 9: Это длинный текст с кратким шаблоном внутри.", "шаблон"}, // Длинный текст, короткий шаблон
     {"Тест 10: Короткий", "Короткий длинный шаблон"},                  // Короткий текст, длинный шаблон
-    {"Тест 11: Проверка регистра шаблона", "Шаблон"}                   // Различие в регистре
+    {"Тест 11: Проверка регистра шаблона", "Шаблон"}, //Различие в регистре
+    {readFileContent("file1.txt"), "шаблон"}
 };
 
 void selectPredefinedTextPattern(std::string& text, std::string& pattern) {
@@ -42,7 +52,6 @@ void executeTest(const std::string& text, const std::string& pattern, std::funct
     method(text, pattern);
 }
 
-// Функция для запуска всех тестов для выбранного метода
 void runAllTests(std::function<void(const std::string&, const std::string&)> method) {
     for (const auto& [text, pattern] : predefinedTextPatterns) {
         executeTest(text, pattern, method);
