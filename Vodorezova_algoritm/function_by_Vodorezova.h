@@ -5,6 +5,8 @@
 #include "function_by_Vodorezova.h"
 #include "TrieNode.h"
 
+bool prefix_code_by_Vodorezova(const std::string& text, const std::string& pattern);
+
 class Trie
 {
 	friend class TrieNode;
@@ -16,4 +18,5 @@ public:
 	bool search(const std::string& word);
 	bool startsWith(const std::string& prefix);
 	~Trie();
+
 };

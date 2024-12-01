@@ -7,6 +7,7 @@
 #include <functional>
 #include <fstream>
 
+
 extern std::vector<std::pair<std::string, std::string>> predefinedTextPatterns;
 
 std::string readFileContent(const std::string& filePath);
@@ -19,5 +20,12 @@ void executeTest(const std::string& text, const std::string& pattern,
 void runAllTests(std::function<void(const std::string&, const std::string&)> method);
 
 void testMenu(std::function<void(const std::string&, const std::string&)> method);
+
+void printTestCases(const std::vector<std::pair<std::string, std::string>>& testCases);
+void fillTextPatternsFromFiles(
+    std::vector<std::pair<std::string, std::string>>& patterns,
+    const std::vector<std::string>& filePaths,
+    const std::string& pattern
+                               );
 
 #endif // TEST_H

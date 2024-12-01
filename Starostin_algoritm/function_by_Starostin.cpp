@@ -59,10 +59,10 @@ bool z_algoritm(const string& text, const string& pattern) {
     return u;
 }
 
-// Driver program
-int main() {
-    string text = "aaabbbvvvggg";
-    string pattern = "bbb";
-    z_algoritm(text, pattern);
-    return 0;
-}
+//// Driver program
+//int main() {
+//    string text = "aaabbbvvvggg";
+//    string pattern = "bbb";
+//    z_algoritm(text, pattern);
+//    return 0;
+//}
