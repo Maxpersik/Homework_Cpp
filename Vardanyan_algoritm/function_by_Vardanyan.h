@@ -1,7 +1,7 @@
-//
-//  function_by_Vodorezova.h
-//  Homework_C-
-//
-//  Created by Maxim Gvozdev on 21.10.2024.
-//
+#pragma once
+#include <vector>
+#include <string>
 
+bool KMP_Search(const std::string& text, const std::string& pattern);
+
+std::vector<int> ComputePrefixFunction(const std::string& pattern);

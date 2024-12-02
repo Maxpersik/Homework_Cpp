@@ -28,4 +28,4 @@ void fillTextPatternsFromFiles(
     const std::string& pattern
                                );
 
-#endif // TEST_H
+#endif

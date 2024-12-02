@@ -3,7 +3,8 @@
 #include <vector>
 #include <fstream>
 #include "test.h"
-
+#include "TestData.h"
+#include <cmath>
 
 std::string readFileContent(const std::string& filePath) {
     std::ifstream file(filePath);
@@ -22,27 +23,6 @@ std::string readFileContent(const std::string& filePath) {
     return content;
 }
 
-std::vector<std::pair<std::string, std::string>> predefinedTextPatterns = {
-    {"Тест 1: Простой пример текста, содержащего шаблон.", "шаблон"}, // Прямое совпадение
-    {"Тест 2: Этот текст не содержит нужного шаблона.", "шаблон"},     // Шаблон отсутствует
-    {"Тест 3: ", "шаблон"},                                            // Пустой текст, непустой шаблон
-    {"Тест 4: Пример текста.", ""},                                    // Непустой текст, пустой шаблон
-    {"Тест 5: ", ""},                                                  // Пустой текст и пустой шаблон
-    {"Тест 6: шаблон в начале текста", "шаблон"},                      // Шаблон в начале текста
-    {"Тест 7: Текст с шаблоном в конце.", "конце."},                   // Шаблон в конце текста
-    {"Тест 8: ааабббвввгггддд", "ббб"},                                // Повторяющиеся символы
-    {"Тест 9: Это длинный текст с кратким шаблоном внутри.", "шаблон"}, // Длинный текст, короткий шаблон
-    {"Тест 10: Короткий", "Короткий длинный шаблон"},                  // Короткий текст, длинный шаблон
-    {"Тест 11: Проверка регистра шаблона", "Шаблон"} //Различие в регистре
-//    {readFileContent("tests/tesоt1.txt"), "программа"}, // 316к символов
-//    {readFileContent("tests/test2.txt"), "программа"} // 1kk символов
-};
-
-std::vector<std::string> filePaths = {
-        "Test_folder/tests/test1.txt",
-        "Test_folder/tests/test2.txt",
-        "Test_folder/tests/test3.txt"
-    };
 
 void selectPredefinedTextPattern(std::string& text, std::string& pattern) {
     std::cout << "\nДоступные предустановленные наборы:\n";
@@ -89,7 +69,7 @@ void testMenu(std::function<void(const std::string&, const std::string&)> method
         std::cin.ignore();
 
         if (choice == -1) {
-            break;  // Возвращаемся в главное меню
+            break;
         } else if (choice == 0) {
             runAllTests(method);
             break;
@@ -108,7 +88,7 @@ void printTestCases(const std::vector<std::pair<std::string, std::string>>& test
         std::cout << "Тест " << i + 1 << ":\n";
         std::cout << "Текст (первые 100 символов): " << text.substr(0, 100) << (text.size() > 100 ? "..." : "") << "\n";
         std::cout << "Шаблон: " << pattern << "\n";
-        std::cout << "Длина текста: " << text.size() << " символов\n";
+        std::cout << "Длина текста: " << std::round(text.size() / 1.82 / 100) * 100 << " символов\n";
         std::cout << "--------------------------\n";
     }
 }

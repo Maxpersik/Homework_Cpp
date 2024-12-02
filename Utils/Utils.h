@@ -24,20 +24,20 @@ template <typename Func, typename... Args>
 auto measureExecutionTime(Func&& func, Args&&... args) {
     using namespace std::chrono;
 
-    auto start = high_resolution_clock::now(); // Начало измерения времени
+    auto start = high_resolution_clock::now();
     auto result = std::invoke(std::forward<Func>(func), std::forward<Args>(args)...);
-    auto end = high_resolution_clock::now();   // Конец измерения времени
+    auto end = high_resolution_clock::now();
 
     auto duration = duration_cast<microseconds>(end - start).count();
     std::cout << "Execution time: " << duration << " microseconds\n";
 
-    return result; // Возвращаем результат вызова функции
+    return result;
 }
 
 template <typename Func>
 void universalMenu(
     const std::string& menuName,
-    Func algorithmFunction, // Шаблонная функция для алгоритма
+    Func algorithmFunction,
     const std::vector<std::pair<std::string, std::string>>& testCases
 ) {
     while (true) {
@@ -45,7 +45,6 @@ void universalMenu(
         std::cout << "0. Вернуться в главное меню\n";
         std::cout << "1. Запустить на всех тестах с измерением времени\n";
 
-        // Показать все тесты
         for (size_t i = 0; i < testCases.size(); ++i) {
             std::cout << i + 2 << ". Тест " << i + 1 << ": \"" << testCases[i].second << "\"\n";
         }
@@ -63,7 +62,6 @@ void universalMenu(
                 const auto& [text, pattern] = testCases[i];
                 std::cout << "\nТест " << i + 1 << ": \"" << pattern << "\" -> ";
                 
-                // Измерение времени выполнения алгоритма
                 auto result = measureExecutionTime(algorithmFunction, text, pattern);
                 std::cout << (result ? "true" : "false") << "\n";
             }
@@ -72,7 +70,6 @@ void universalMenu(
             const auto& [text, pattern] = testCases[testIndex];
             std::cout << "\nЗапуск алгоритма на тесте " << testIndex + 1 << ": \"" << pattern << "\" -> ";
             
-            // Измерение времени выполнения для одного теста
             auto result = measureExecutionTime(algorithmFunction, text, pattern);
             std::cout << (result ? "true" : "false") << "\n";
         } else {
