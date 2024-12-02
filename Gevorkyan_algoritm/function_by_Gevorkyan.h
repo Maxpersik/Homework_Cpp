@@ -1,7 +1,6 @@
-//
-//  function_by_Gevorkyan.h
-//  Homework_Cpp
-//
-//  Created by Maxim Gvozdev on 01.12.2024.
-//
+#pragma once
+#include <string>
+#include <unordered_map>
+
+bool Bitap_Artur(const std::string& text, const std::string& pattern);
 
