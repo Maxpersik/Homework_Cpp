@@ -3,6 +3,7 @@
 #include <string>
 #include "function_by_Vodorezova.h"
 #include "TrieNode.h"
+#include <sstream>
 
 Trie::Trie() {
     root = new TrieNode();
@@ -43,5 +44,24 @@ bool Trie::startsWith(const std::string& prefix) {
 Trie::~Trie() {
     delete root;
 
+}
+
+bool prefix_code_by_Vodorezova(const std::string& text, const std::string& poisk) {
+    Trie trie;
+
+    std::istringstream stream(text);
+    std::string word;
+    while (stream >> word) {
+        trie.insert(word);
+    }
+
+    bool isExactMatch = trie.search(poisk);
+    bool isPrefixMatch = trie.startsWith(poisk);
+
+    std::cout << "Output of search for word in text and prefix" << std::endl;
+    std::cout << "Exact match: " << (isExactMatch ? "true" : "false") << std::endl;
+    std::cout << "Starts with: " << (isPrefixMatch ? "true" : "false") << std::endl;
+
+    return isExactMatch || isPrefixMatch;
 }
 

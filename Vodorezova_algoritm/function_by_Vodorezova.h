@@ -17,3 +17,5 @@ public:
 	bool startsWith(const std::string& prefix);
 	~Trie();
 };
+
+bool prefix_code_by_Vodorezova(const std::string& text, const std::string& pattern);
